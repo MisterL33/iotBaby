@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { Modal, Platform, TouchableOpacity, StyleSheet, Text, View, Button, TouchableHighlight, TextInput, Picker } from 'react-native';
-import BabyList from '../screens/babyList';
 
-export default class Home extends React.Component {
+
+export default class BabyList extends React.Component {
 
 
 
@@ -21,8 +21,8 @@ export default class Home extends React.Component {
     return (
       <View>
 
-       <Text>Accueil</Text>
-       <Button title='Liste baby' onPress={() => this.props.navigation.navigate('BabyList', { state: this.state })} />
+       <Text>BabyList</Text>
+       <Button title='Accueil' onPress={() => this.props.navigation.navigate('Home')} />
       </View>
     );
   }

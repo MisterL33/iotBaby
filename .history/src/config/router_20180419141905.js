@@ -3,7 +3,7 @@ import { StackNavigator,  NavigationAction } from 'react-navigation';
 import {View, Text, Button, TouchableOpacity, TouchableHighlight } from 'react-native';
 
 import Home from '../screens/home';
-import BabyList from '../screens/babyList';
+
 const RootStack = StackNavigator(
 
     {
@@ -11,9 +11,6 @@ const RootStack = StackNavigator(
             screen: Home,
          
         },
-        BabyList: {
-            screen: BabyList,
-        }
 
 
     },

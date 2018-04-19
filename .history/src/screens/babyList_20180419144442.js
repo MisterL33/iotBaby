@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { Modal, Platform, TouchableOpacity, StyleSheet, Text, View, Button, TouchableHighlight, TextInput, Picker } from 'react-native';
-import BabyList from '../screens/babyList';
 
-export default class Home extends React.Component {
+
+export default class BabyList extends React.Component {
 
 
 

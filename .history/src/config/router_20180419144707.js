@@ -12,7 +12,7 @@ const RootStack = StackNavigator(
          
         },
         BabyList: {
-            screen: BabyList,
+            scree: BabyList,
         }
 
 
