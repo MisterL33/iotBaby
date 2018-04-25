@@ -4,7 +4,6 @@ import {View, Text, Button, TouchableOpacity, TouchableHighlight } from 'react-n
 
 import Home from '../screens/home';
 import BabyList from '../screens/babyList';
-import Register from '../screens/register';
 const RootStack = StackNavigator(
 
     {
@@ -16,7 +15,7 @@ const RootStack = StackNavigator(
             screen: BabyList,
         },
         Register: {
-            screen: Register,
+            screen: BabyList,
         }
 
 
