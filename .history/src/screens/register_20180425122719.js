@@ -74,7 +74,7 @@ export default class Register extends React.Component {
                     <TextInput value={this.state.email} onChangeText={(email) => this.setState({ email: email })} placeholder="Email" />
                     <TextInput value={this.state.nom} onChangeText={(nom) => this.setState({ nom: nom })} placeholder="Nom" />
                     <TextInput value={this.state.prenom} onChangeText={(prenom) => this.setState({ prenom: prenom })} placeholder="Prenom" />
-                    <TextInput secureTextEntry={true} value={this.state.password} onChangeText={(password) => this.setState({ password: password })} placeholder="Password" />
+                    <TextInput value={this.state.password} onChangeText={(password) => this.setState({ password: password })} placeholder="Password" />
                     <Picker
                         selectedValue={this.state.sexe}
                         style={{ height: 50, width: 100 }}

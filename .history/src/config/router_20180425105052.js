@@ -20,7 +20,7 @@ const RootStack = StackNavigator(
             screen: Register,
         },
         Login: {
-            screen: Login,
+            screen: Register,
         }
 
 

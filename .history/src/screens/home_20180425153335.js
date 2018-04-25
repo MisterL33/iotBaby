@@ -2,7 +2,7 @@
 import React from 'react';
 import { Modal, Platform, TouchableOpacity, StyleSheet, Text, View, Button, TouchableHighlight, TextInput, Picker, AsyncStorage } from 'react-native';
 import BabyList from '../screens/babyList';
-
+import { loggedIn } from '../tools/tokenManager'
 export default class Home extends React.Component {
 
 
@@ -21,10 +21,8 @@ export default class Home extends React.Component {
 
   componentDidMount = () => {
     console.log('didMount home')
-    AsyncStorage.getItem("jwt").then((value) => {
-      console.log(value);
-      this.setState({jwt: value})
-    }).done();
+    loggedIn()
+    console.log(loggedIn())
 
   }
 
@@ -39,7 +37,8 @@ export default class Home extends React.Component {
 
   render() {
 
-
+    console.log('state')
+    console.log(this.state)
 
     return (
       <View>

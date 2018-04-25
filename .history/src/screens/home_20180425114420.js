@@ -10,20 +10,12 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
 
-
-    this.state = {
-      jwt: {}
-
-
-  };
-
   }
 
   componentDidMount = () => {
     console.log('didMount home')
     AsyncStorage.getItem("jwt").then((value) => {
       console.log(value);
-      this.setState({jwt: value})
     }).done();
 
   }
@@ -31,8 +23,6 @@ export default class Home extends React.Component {
   handleLogout = () => {
 
     AsyncStorage.removeItem("jwt");
-    this.setState({jwt: {}})
-    this.props.navigation.navigate('Home')
 
   }
 
@@ -45,19 +35,10 @@ export default class Home extends React.Component {
       <View>
 
         <Text>Accueil</Text>
-
-        { this.state.jwt && 
-        <View>
         <Button title='Liste baby' onPress={() => this.props.navigation.navigate('BabyList', { state: this.state })} />
-        <Button title='Deconnexion' onPress={() => this.handleLogout()} />
-        </View>
-        }
-        { !this.state.jwt && 
-        <View>
         <Button title='Inscription' onPress={() => this.props.navigation.navigate('Register', { state: this.state })} />
         <Button title='Connexion' onPress={() => this.props.navigation.navigate('Login', { state: this.state })} />
-        </View>
-        }
+        <Button title='Deconnexion' onPress={() => this.handleLogout()} />
       </View>
     );
   }

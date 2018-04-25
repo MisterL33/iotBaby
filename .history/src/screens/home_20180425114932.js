@@ -52,12 +52,9 @@ export default class Home extends React.Component {
         <Button title='Deconnexion' onPress={() => this.handleLogout()} />
         </View>
         }
-        { !this.state.jwt && 
-        <View>
         <Button title='Inscription' onPress={() => this.props.navigation.navigate('Register', { state: this.state })} />
         <Button title='Connexion' onPress={() => this.props.navigation.navigate('Login', { state: this.state })} />
-        </View>
-        }
+        
       </View>
     );
   }

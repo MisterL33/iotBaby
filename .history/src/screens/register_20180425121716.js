@@ -40,8 +40,6 @@ export default class Register extends React.Component {
                 nom: this.state.nom,
                 prenom: this.state.prenom,
                 password: this.state.password,
-                naissance: this.state.naissance,
-                sexe: this.state.sexe
             })
         }).then((response) => response.json())
             .then((responseJson) => {
@@ -74,7 +72,7 @@ export default class Register extends React.Component {
                     <TextInput value={this.state.email} onChangeText={(email) => this.setState({ email: email })} placeholder="Email" />
                     <TextInput value={this.state.nom} onChangeText={(nom) => this.setState({ nom: nom })} placeholder="Nom" />
                     <TextInput value={this.state.prenom} onChangeText={(prenom) => this.setState({ prenom: prenom })} placeholder="Prenom" />
-                    <TextInput secureTextEntry={true} value={this.state.password} onChangeText={(password) => this.setState({ password: password })} placeholder="Password" />
+                    <TextInput value={this.state.password} onChangeText={(password) => this.setState({ password: password })} placeholder="Password" />
                     <Picker
                         selectedValue={this.state.sexe}
                         style={{ height: 50, width: 100 }}
@@ -84,11 +82,11 @@ export default class Register extends React.Component {
                     </Picker>
                     <DatePicker
                         style={{ width: 200 }}
-                        date={this.state.naissance}
-                        androidMode="spinner"
-                        placeholder="Date de naissance"
+                        date={this.state.date}
+                        mode="date"
+                        placeholder="select date"
                         format="YYYY-MM-DD"
-                        minDate="1920-05-01"
+                        minDate="2016-05-01"
                         maxDate="2016-06-01"
                         confirmBtnText="Confirm"
                         cancelBtnText="Cancel"
@@ -104,7 +102,7 @@ export default class Register extends React.Component {
                             }
                             // ... You can check the source to find the other keys.
                         }}
-                        onDateChange={(naissance) => { this.setState({ naissance: naissance }) }}
+                        onDateChange={(date) => { this.setState({ date: date }) }}
                     />
 
                     <Button title='OK' onPress={() => this.handleRegister()} />
