@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { Modal, Platform, TouchableOpacity, StyleSheet, Text, View, Button, TouchableHighlight, TextInput, Picker, AsyncStorage } from 'react-native';
-import io from 'socket.io-client';
-window.navigator.userAgent = 'react-native';
+import io from 'socket.io-client/socket.io';
+
 export default class Login extends React.Component {
 
 

@@ -1,15 +1,14 @@
 
 import React from 'react';
 import { Modal, Platform, TouchableOpacity, StyleSheet, Text, View, Button, TouchableHighlight, TextInput, Picker, AsyncStorage } from 'react-native';
-import io from 'socket.io-client';
-window.navigator.userAgent = 'react-native';
+
+
 export default class Login extends React.Component {
 
 
 
     constructor(props) {
         super(props);
-        this.socket = io('localhost:1337', {jsonp: false});
         this.state = {
             email: 'lolo@gmail.com',
             password: 'pomme974974',
