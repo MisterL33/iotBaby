@@ -23,7 +23,7 @@ export default class Home extends React.Component {
 
   componentDidMount = () => {
     console.log('didMount home')
-
+    
     isSignedIn("jwt")// super fonction disponible dans tokenManager qui vérifie qu'un token est présent
       .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
       .catch(err => alert("An error occurred"));

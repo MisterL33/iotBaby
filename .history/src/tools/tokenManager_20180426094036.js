@@ -12,11 +12,8 @@ export const isSignedIn = (key) => {
       .then(res => {
         if (res !== null) {
           resolve(true);
-          console.log('success')
-          console.log(res)
         } else {
           resolve(false);
-          console.log('fail')
         }
       })
       .catch(err => reject(err));

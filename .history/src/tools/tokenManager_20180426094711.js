@@ -13,7 +13,6 @@ export const isSignedIn = (key) => {
         if (res !== null) {
           resolve(true);
           console.log('success')
-          console.log(res)
         } else {
           resolve(false);
           console.log('fail')
