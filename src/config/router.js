@@ -10,6 +10,7 @@ import Message from '../screens/message';
 import Team from '../screens/team';
 import TeamMaker from '../screens/teamMaker';
 import TeamJoin from '../screens/teamJoin';
+import Match from '../screens/match';
 
 
 const RootStack = StackNavigator(
@@ -39,10 +40,10 @@ const RootStack = StackNavigator(
         },
         TeamJoin: {
             screen: TeamJoin,
+        },
+        Match: {
+            screen: Match,
         }
-
-
-
     },
     {
         initialRouteName: 'Home',

@@ -25,6 +25,7 @@ export default class BabyList extends React.Component {
     fetch(baseIp + '/babyFoot')
       .then((response) => response.json())
       .then((responseJson) => {
+        console.log('ICI ICI')
         console.log(responseJson)
         this.setState({ babyList: responseJson })
 
@@ -48,6 +49,7 @@ export default class BabyList extends React.Component {
             <Text> Baby numéro {baby.id} </Text>
             <Text> Localité : {baby.location}  </Text>
             <Text> Joueurs max : {baby.maxPlayers} </Text>
+            <Button title='Rejoindre' onPress={() => this.props.navigation.navigate('Match')}/>
           </View>
         ))}
 
