@@ -94,10 +94,13 @@ export default class Team extends React.Component {
 
             <Text> Membres de la team : </Text>
             {this.state.teamPlayers && this.state.teamPlayers.members.map((member, i) => (
-              <View key={i}>
+              <View>
                 <Text>{member.nom} {member.prenom}</Text>
               </View>
             ))}
+
+
+
           </View>
         }
       </View>

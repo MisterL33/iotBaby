@@ -42,8 +42,7 @@ export default class TeamMaker extends React.Component {
 
 
     handleCreateTeam = () => {
-        
-        
+        console.log(this.state)
         fetch(baseIp + '/api/team/create', {
             method: 'POST',
             headers: {

@@ -54,7 +54,7 @@ export default class TeamMaker extends React.Component {
                 owner: this.state.user.id,
                 nom: this.state.teamName,
             })
-        }).then(this.props.navigation.navigate('Home'))
+        }).then((res) => console.log(res))
     }
 
 
