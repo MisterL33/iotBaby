@@ -98,6 +98,9 @@ export default class Team extends React.Component {
                 <Text>{member.nom} {member.prenom}</Text>
               </View>
             ))}
+
+
+
           </View>
         }
       </View>

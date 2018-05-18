@@ -44,9 +44,11 @@ export default class Register extends React.Component {
         }).then((response) => response.json())
             .then((responseJson) => {
                 console.log('register')
+                console.log(responseJson)
                 AsyncStorage.setItem('jwt', JSON.stringify(responseJson))
                 .then(() => {
                     this.props.navigation.navigate('Home')
+                   
                 })
             })
 

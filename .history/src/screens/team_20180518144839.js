@@ -34,16 +34,16 @@ export default class Team extends React.Component {
         } else {
           this.setState({ signedIn: res, checkedSignIn: true })
           getUser().then(res => {
-
+            //console.log('isSigned getUser')
             res = JSON.parse(res)
             // on passe l'id user à la fonction update qui va update le token actif
             this.handleUpdateToken(res.id)
-
+            this.setState({ user: res })
           })
         }
       })
 
-
+      
   }
 
   handleUpdateToken(userId) {
@@ -51,29 +51,9 @@ export default class Team extends React.Component {
     getUser().then(res => {
       console.log('isSigned getUser')
       res = JSON.parse(res)
-      console.log('here motha')
-
-      this.setState({ user: res }, () => {
-        if (this.state.user.team) {
-          this.getTeamPlayers(this.state.user.team.id)
-        }
-
-      })
-
+      this.setState({ user: res })
+      console.log(this.state)
     })
-  }
-
-
-  getTeamPlayers = (teamId) => {
-
-    fetch(baseIp + '/team/' + teamId)
-      .then((response) => response.json())
-      .then((responseJson) => {
-        console.log(responseJson)
-        this.setState({ teamPlayers: responseJson })
-
-      })
-
   }
 
 
@@ -81,7 +61,6 @@ export default class Team extends React.Component {
 
 
   render() {
-
     return (
       <View>
         {this.state.user && this.state.user.team == null ?
@@ -91,13 +70,6 @@ export default class Team extends React.Component {
           </View>
           : <View>
             <Text> Team {this.state.user.team.nom} </Text>
-
-            <Text> Membres de la team : </Text>
-            {this.state.teamPlayers && this.state.teamPlayers.members.map((member, i) => (
-              <View key={i}>
-                <Text>{member.nom} {member.prenom}</Text>
-              </View>
-            ))}
           </View>
         }
       </View>

@@ -34,10 +34,10 @@ export default class Home extends React.Component {
           getUser().then(res => {
             //console.log('isSigned getUser')
             res = JSON.parse(res)
-            
+            console.log(res)
             // on passe l'id user à la fonction update qui va update le token actif
             
-            this.handleUpdateToken(res.id)
+           // this.handleUpdateToken(res.id)
             this.setState({ user: res })
             
           })
@@ -49,8 +49,8 @@ export default class Home extends React.Component {
     updateJwt(userId)
     getUser().then(res => {
       console.log('isSigned getUser')
-      res = JSON.parse(res)
-
+     
+      
     })
   }
 

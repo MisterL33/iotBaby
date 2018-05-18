@@ -49,8 +49,8 @@ export default class Home extends React.Component {
     updateJwt(userId)
     getUser().then(res => {
       console.log('isSigned getUser')
-      res = JSON.parse(res)
-
+     
+      console.log(res)
     })
   }
 

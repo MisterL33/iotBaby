@@ -36,7 +36,7 @@ export default class Login extends React.Component {
                 AsyncStorage.setItem('jwt', JSON.stringify(responseJson))
                     .then(() => {
                         this.props.navigation.navigate('Home')
-                       
+                        console.log(responseJson)
                     })
             })
     }
