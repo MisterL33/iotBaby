@@ -49,11 +49,18 @@ export default class Home extends React.Component {
         sailsSocket.sails.useCORSRouteToGetCookie = false
 
         SailsSocket.get('/match').then(jwr => {
-            console.log('here')
+            // alert('here')
         })
 
-        SailsSocket.on('match', function(msg){
-            alert('hop')
+        SailsSocket.on('match', (msg) => {
+            // alert('but')
+            // var redScore = this.state.redScore;
+           this.setState({
+               redScore: msg.redScore,
+               blueScore: msg.blueScore,
+           })
+            // alert(JSON.stringify(msg))
+
         })
 
         // isSignedIn("jwt")// super fonction disponible dans tokenManager qui vérifie qu'un token est présent, si oui on get l'user
@@ -84,8 +91,8 @@ export default class Home extends React.Component {
             blueScore: -1
 
         })
-        fetch(baseIp + '/match/join', {
-            method: 'GET',
+        fetch(baseIp + '/api/match/join', {
+            method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',

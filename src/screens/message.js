@@ -24,9 +24,6 @@ export default class Message extends React.Component {
     constructor(props) {
         super(props);
 
-        // var socketIOClient = require('socket.io-client');
-        // var sailsIOClient = require('sails.io.js');
-        
         this.state = {
             username: null,
             message: null,
@@ -34,9 +31,6 @@ export default class Message extends React.Component {
             open: false,
             connected: false
         };
-
-
-        
     }
 
 
@@ -44,23 +38,20 @@ export default class Message extends React.Component {
         this.getMessages();
   
         console.log('io')
-        
 
+        const initializeParams = { url: baseIp , jsonp: 'false' }
+        const sailsSocket = SailsSocket.connect(initializeParams)
+        console.log(sailsSocket)
+        sailsSocket.sails.useCORSRouteToGetCookie = false
 
-    const initializeParams = { url: baseIp , jsonp: 'false' }
-    const sailsSocket = SailsSocket.connect(initializeParams)
-    console.log(sailsSocket)
-    sailsSocket.sails.useCORSRouteToGetCookie = false
+        SailsSocket.get('/message').then(jwr => {
+            alert('here')
+        })
 
-    SailsSocket.get('/message').then(jwr => {
-        console.log('here')
-    })
-
-    SailsSocket.on('message', function(msg){
-alert('hop')
-    })
-
-    }
+        SailsSocket.on('message', function(msg){
+            alert('hop')
+        })
+     }
 
     componentWillMount() {
 
