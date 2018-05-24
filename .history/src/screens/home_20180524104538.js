@@ -34,18 +34,18 @@ export default class Home extends React.Component {
           getUser().then(res => {
             //console.log('isSigned getUser')
             res = JSON.parse(res)
-
+            
             // on passe l'id user à la fonction update qui va update le token actif
-
+            
             this.handleUpdateToken(res.id)
             this.setState({ user: res })
-
+            
           })
         }
       })
   }
 
-  handleUpdateToken(userId) {
+  handleUpdateToken(userId){
     updateJwt(userId)
     getUser().then(res => {
       console.log('isSigned getUser')
@@ -58,27 +58,20 @@ export default class Home extends React.Component {
   handleLogout = () => {
 
     onSignOut("jwt")
-      .then((res) => {
-        this.setState({ signedIn: res, checkedSignIn: false }, () => {
-          this.props.navigation.navigate('Home')
-        }
-
-        )
-      })
+      .then(res => this.setState({ signedIn: res, checkedSignIn: false }))
       .catch(err => alert("An error occurred"));
 
   }
 
 
   render() {
-
+console.log(this.state)
 
 
     return (
       <View>
-        {this.state.user &&
-          <Text>Bienvenue {this.state.user.nom} {this.state.user.prenom}</Text>
-        }
+
+        <Text>Bienvenue {this.state.user.nom} {this.state.user.prenom}</Text>
         {this.state.checkedSignIn === true &&
           <View>
             <Button title='Liste baby' onPress={() => this.props.navigation.navigate('BabyList', { state: this.state })} />

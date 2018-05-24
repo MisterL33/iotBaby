@@ -50,10 +50,10 @@ export default class BabyList extends React.Component {
             <Text> Localité : {baby.location}  </Text>
             <Text> Joueurs max : {baby.maxPlayers} </Text>
             <View>
-            {baby.state == 0 ? (
-            <Text> Etat : Disponible </Text> ) :
-            (
-            <Text> Etat : Indisponible </Text> )
+            {baby.state == 0 ? 
+            <Text> Etat : Disponible </Text> :
+            baby.state == 1 
+            <Text> Etat : Indisponible </Text> :
             }
             
             </View>

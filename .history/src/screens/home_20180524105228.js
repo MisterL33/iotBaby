@@ -59,12 +59,11 @@ export default class Home extends React.Component {
 
     onSignOut("jwt")
       .then((res) => {
-        this.setState({ signedIn: res, checkedSignIn: false }, () => {
+        this.setState({ signedIn: res, checkedSignIn: false }, () =>{
           this.props.navigation.navigate('Home')
         }
-
-        )
-      })
+        
+      )})
       .catch(err => alert("An error occurred"));
 
   }

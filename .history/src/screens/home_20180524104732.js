@@ -58,13 +58,7 @@ export default class Home extends React.Component {
   handleLogout = () => {
 
     onSignOut("jwt")
-      .then((res) => {
-        this.setState({ signedIn: res, checkedSignIn: false }, () => {
-          this.props.navigation.navigate('Home')
-        }
-
-        )
-      })
+      .then(res => this.setState({ signedIn: res, checkedSignIn: false }))
       .catch(err => alert("An error occurred"));
 
   }

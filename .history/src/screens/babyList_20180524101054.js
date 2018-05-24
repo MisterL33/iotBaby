@@ -49,14 +49,7 @@ export default class BabyList extends React.Component {
             <Text> Baby numéro {baby.id} </Text>
             <Text> Localité : {baby.location}  </Text>
             <Text> Joueurs max : {baby.maxPlayers} </Text>
-            <View>
-            {baby.state == 0 ? (
-            <Text> Etat : Disponible </Text> ) :
-            (
-            <Text> Etat : Indisponible </Text> )
-            }
-            
-            </View>
+            <Text> Etat : {baby.state} </Text>
             <Button title='Rejoindre' onPress={() => this.props.navigation.navigate('Match')}/>
           </View>
         ))}
