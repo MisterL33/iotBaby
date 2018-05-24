@@ -4,8 +4,7 @@ import { Modal, Platform, TouchableOpacity, StyleSheet, Text, View, Button, Touc
 
 import { isSignedIn, onSignOut, getUser } from '../tools/tokenManager';
 import baseIp from '../config/ipconfig'
-
-export default class TeamMaker extends React.Component {
+export default class TeamJoin extends React.Component {
 
 
 
@@ -17,14 +16,14 @@ export default class TeamMaker extends React.Component {
             jwt: {},
             signedIn: false,
             checkedSignIn: false,
-            teamName: null,
-            user: {}
-
+            team: null
         };
 
     }
 
     componentDidMount = () => {
+        console.log('didMount join')
+
         isSignedIn("jwt")// super fonction disponible dans tokenManager qui vérifie qu'un token est présent, si oui on get l'user
             .then((res) => {
                 if (res === false) {
@@ -38,21 +37,33 @@ export default class TeamMaker extends React.Component {
                     })
                 }
             })
+        this.getTeams()
     }
 
 
-    handleCreateTeam = () => {
+    getTeams = () => {
+        fetch(baseIp + '/team')
+            .then((response) => response.json())
+            .then((responseJson) => {
 
+                this.setState({ teams: responseJson })
+                this.setState({ team: responseJson[0] })
+            })
+    }
 
-        fetch(baseIp + '/api/team/create', {
+    handleJoinTeam = () => { 
+
+        fetch(baseIp + '/api/team/join', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                owner: this.state.user.id,
-                nom: this.state.teamName,
+                id: this.state.user.id,
+                team: this.state.team.id
+
+
             })
         }).then(this.props.navigation.navigate('Home'))
     }
@@ -62,12 +73,18 @@ export default class TeamMaker extends React.Component {
     render() {
         return (
             <View>
-                <Text>Créer ta team</Text>
-                <TextInput value={this.state.teamName} onChangeText={(teamName) => this.setState({ teamName: teamName })} placeholder="Nom de la team" />
-
-                <TouchableOpacity style={styles.nextButton} onPress={() => this.handleCreateTeam()}>
-                    <Text>Valider</Text>
-                </TouchableOpacity>
+                <Text>Rejoindre une team</Text>
+                {this.state.teams &&
+                    <Picker
+                        selectedValue={this.state.team}
+                        style={{ height: 50, width: 100 }}
+                        onValueChange={(itemValue, itemIndex) => this.setState({ team: itemValue })}>
+                        {this.state.teams.map((team, i) => (
+                            <Picker.Item key={i} label={team.nom} value={team.id} />
+                        ))}
+                    </Picker>
+                }
+                <Button title='Valider' onPress={() => this.handleJoinTeam()} />
             </View>
         );
     };

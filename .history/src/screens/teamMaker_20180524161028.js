@@ -42,8 +42,8 @@ export default class TeamMaker extends React.Component {
 
 
     handleCreateTeam = () => {
-
-
+        
+        
         fetch(baseIp + '/api/team/create', {
             method: 'POST',
             headers: {
@@ -64,10 +64,10 @@ export default class TeamMaker extends React.Component {
             <View>
                 <Text>Créer ta team</Text>
                 <TextInput value={this.state.teamName} onChangeText={(teamName) => this.setState({ teamName: teamName })} placeholder="Nom de la team" />
-
+                <Button title='Valider' onPress={() => this.handleCreateTeam()} />
                 <TouchableOpacity style={styles.nextButton} onPress={() => this.handleCreateTeam()}>
-                    <Text>Valider</Text>
-                </TouchableOpacity>
+          <Text>Valider</Text>
+        </TouchableOpacity>
             </View>
         );
     };
