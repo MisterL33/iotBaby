@@ -59,10 +59,7 @@ export default class Register extends React.Component {
         return (
             <View>
                 <Text>Inscription</Text>
-               
-                <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Home')}>
-                        <Text>Accueil</Text>
-                    </TouchableOpacity>
+                <Button title='Accueil' onPress={() => this.props.navigation.navigate('Home')} />
                 <View>
                     <TextInput value={this.state.email} onChangeText={(email) => this.setState({ email: email })} placeholder="Email" />
                     <TextInput value={this.state.nom} onChangeText={(nom) => this.setState({ nom: nom })} placeholder="Nom" />
@@ -100,8 +97,8 @@ export default class Register extends React.Component {
                         onDateChange={(naissance) => { this.setState({ naissance: naissance }) }}
                     />
 
-                   
-                    <TouchableOpacity style={styles.nextButton} onPress={() => this.handleRegister()}>
+                    <Button title='OK' onPress={() => this.handleRegister()} />
+                    <TouchableOpacity style={styles.nextButton} onPress={() => this.handleCreateTeam()}>
                         <Text>Valider</Text>
                     </TouchableOpacity>
                 </View>

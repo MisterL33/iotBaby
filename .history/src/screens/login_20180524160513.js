@@ -36,7 +36,7 @@ export default class Login extends React.Component {
                 AsyncStorage.setItem('jwt', JSON.stringify(responseJson))
                     .then(() => {
                         this.props.navigation.navigate('Home')
-
+                       
                     })
             })
     }
@@ -48,19 +48,15 @@ export default class Login extends React.Component {
         return (
             <View>
                 <Text>Login</Text>
-
+               
 
                 <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Home')}>
-                    <Text>Accueil</Text>
-                </TouchableOpacity>
+              <Text>Accueil</Text>
+            </TouchableOpacity>
                 <View>
                     <TextInput value={this.state.email} onChangeText={(email) => this.setState({ email: email })} placeholder="Email" />
                     <TextInput secureTextEntry={true} value={this.state.password} onChangeText={(password) => this.setState({ password: password })} placeholder="Password" />
-
-                    <TouchableOpacity style={styles.nextButton} onPress={() => this.handleLogin()}>
-                        <Text>OK</Text>
-                    </TouchableOpacity>
-
+                    <Button title='OK' onPress={() => this.handleLogin()} />
                 </View>
             </View>
         );

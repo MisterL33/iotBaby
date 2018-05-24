@@ -43,7 +43,9 @@ export default class BabyList extends React.Component {
 
         <Text>BabyListe</Text>
 
-
+        <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Home')}>
+          <Text>Rejoindre</Text>
+        </TouchableOpacity>
 
         {this.state.babyList && this.state.babyList.map((baby, i) => (
           <View key={i}>

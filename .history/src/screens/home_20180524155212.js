@@ -99,13 +99,8 @@ export default class Home extends React.Component {
         }
         {this.state.checkedSignIn === false &&
           <View>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Register', { state: this.state })}>
-              <Text>Inscription</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Login', { state: this.state })}>
-              <Text>Connexion</Text>
-            </TouchableOpacity>
-
+            <Button title='Inscription' onPress={() => this.props.navigation.navigate('Register', { state: this.state })} />
+            <Button title='Connexion' onPress={() => this.props.navigation.navigate('Login', { state: this.state })} />
           </View>
         }
       </View>

@@ -86,14 +86,14 @@ export default class Team extends React.Component {
       <View>
         {this.state.user && this.state.user.team == null ?
           <View>
-
+         
             <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('TeamMaker', { state: this.state })}>
-              <Text>Créer une team</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('TeamJoin', { state: this.state })}>
-              <Text>Rejoindre une team</Text>
-            </TouchableOpacity>
-
+                    <Text>Créer une team</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('TeamJoin', { state: this.state })}>
+                    <Text>Rejoindre une team</Text>
+                </TouchableOpacity>
+           
           </View>
           : <View>
             <Text> Team {this.state.user.team.nom} </Text>

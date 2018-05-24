@@ -82,30 +82,19 @@ export default class Home extends React.Component {
         }
         {this.state.checkedSignIn === true &&
           <View>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('BabyList', { state: this.state })}>
-              <Text>Liste baby</Text>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('BabyList', { state: this.state })}>
+            <Text>Liste baby</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Message', { state: this.state })}>
-              <Text>Message</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Team', { state: this.state })}>
-              <Text>Team</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.handleLogout()}>
-              <Text>Deconnexion</Text>
-            </TouchableOpacity>
-
+            
+            <Button title='Message' onPress={() => this.props.navigation.navigate('Message', { state: this.state })} />
+            <Button title='Team' onPress={() => this.props.navigation.navigate('Team', { state: this.state })} />
+            <Button title='Deconnexion' onPress={() => this.handleLogout()} />
           </View>
         }
         {this.state.checkedSignIn === false &&
           <View>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Register', { state: this.state })}>
-              <Text>Inscription</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.nextButton} onPress={() => this.props.navigation.navigate('Login', { state: this.state })}>
-              <Text>Connexion</Text>
-            </TouchableOpacity>
-
+            <Button title='Inscription' onPress={() => this.props.navigation.navigate('Register', { state: this.state })} />
+            <Button title='Connexion' onPress={() => this.props.navigation.navigate('Login', { state: this.state })} />
           </View>
         }
       </View>
